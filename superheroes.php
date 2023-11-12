@@ -1,7 +1,7 @@
 <?php
 
 header("Access-Control-Allow-Origin: *");
-header("Content-Type: text/html");
+header("Content-Type: application/json");
 
 $superheroes = [
   [
@@ -66,12 +66,24 @@ $superheroes = [
   ],
 ];
 
+$searchQuery = isset($_GET['query']) ? strtolower($_GET['query']) : '';
+
+if (empty($searchQuery) ){
+    echo json_encode($superheroes, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);
+}
+else{
+    $foundSuperhero = null;
+foreach ($superheroes as $superhero) {
+  if (strtolower($superhero['name']) === $searchQuery || strtolower($superhero['alias']) === $searchQuery) {
+    $foundSuperhero = $superhero;
+    break;
+  }
+}
+echo json_encode($foundSuperhero, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHES);    
+}
+
 ?>
 
-<ul>
-<?php foreach ($superheroes as $superhero): ?>
-  <li><?= $superhero['alias']; ?></li>
-<?php endforeach; ?>
-</ul>
+
 
 
