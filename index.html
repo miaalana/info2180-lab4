@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="styles.css" />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src="app.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/2.3.3/purify.min.js"></script>
   </head>
   <body>
     <header>
@@ -18,10 +19,17 @@
     <main>
         <div class="container">
           <div class = "searchbar">
-            <button type = "click" id="sbtn">Search</button>
+            <p>Search by Full Name or Alias</p>
+            <form>
+              <input type="text" id="search" name="search" placeholder="e.g Captain America or Steve Rogers">
+              <button type = "click" id="sbtn">Search</button>
+            </form>
+            <h2>RESULT</h2>
+              <hr>
+            <div id ="result">
+            </div>
           </div>
-        </div>
-        </div> 
+      </div> 
     </main>
   </body>
 </html>
