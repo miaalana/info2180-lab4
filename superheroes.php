@@ -86,4 +86,3 @@ echo json_encode($foundSuperhero, JSON_UNESCAPED_UNICODE | JSON_UNESCAPED_SLASHE
 
 
 
-
